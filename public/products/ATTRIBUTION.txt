@@ -1,0 +1,13 @@
+Product icon source: Tabler Icons
+Repository: https://github.com/tabler/tabler-icons
+Icon files downloaded from: https://raw.githubusercontent.com/tabler/tabler-icons/master/icons/outline/
+License: MIT
+
+Files used:
+- cup.svg
+- beer.svg
+- glass-full.svg
+- glass-cocktail.svg
+- sausage.svg
+- burger.svg
+- meat.svg
