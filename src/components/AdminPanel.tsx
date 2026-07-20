@@ -5,7 +5,7 @@ import { fetchAdminUsers, updateAdminUser } from '../services/adminUsers'
 import type { CategoryId, Product } from '../types'
 import { formatCurrency, parseCurrencyInputToCents } from '../utils/currency'
 import { deleteProduct, upsertProduct } from '../services/productStore'
-import { isSupabaseConfigured, supabase } from '../lib/supabase'
+import { isSupabaseConfigured, missingSupabaseConfig, supabase } from '../lib/supabase'
 
 interface AdminPanelProps {
   products: Product[]
@@ -322,7 +322,10 @@ export function AdminPanel({ products, onProductsChanged }: AdminPanelProps) {
 
       {!isSupabaseConfigured && (
         <p className="error">
-          Supabase ist nicht konfiguriert. Bitte VITE_SUPABASE_URL und VITE_SUPABASE_ANON_KEY setzen.
+          Supabase ist nicht konfiguriert.
+          {missingSupabaseConfig.url && ' VITE_SUPABASE_URL fehlt.'}
+          {missingSupabaseConfig.anonKey && ' VITE_SUPABASE_ANON_KEY fehlt.'}
+          {' '}Nach dem Eintragen in Netlify bitte neu deployen.
         </p>
       )}
 
